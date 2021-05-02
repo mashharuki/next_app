@@ -1,27 +1,32 @@
 // 各種コンポーネントを読み込む。
 import Header from './header';
+import Link from 'next/link';
 
 // デフォルトコンポーネント
 export default function Home() {
   // 変数
-  const title = "Next.js page";
-  const message = "React Next.js sample page";
+  const title = "Index";
 
   // レンダリング
   return (
     <div>
       <Header title={title} />
-      <h1 className="bg-primary text-white display-4">
+      <h1 className="bg-primary text-white display-4 px-3">
         React
       </h1>
       <div className="container">
-        <h2 className="my-3 subtitle">
+        <h3 className="my-3 text-primary text-center">
           {title}
-        </h2>
-        <div className="alert alert-primary text-center">
-          <p className="h5" >
-            {message}.
+        </h3>
+        <div className="card p-3 text-center">
+          <p>
+            これは、ページ移動のサンプルです。
           </p>
+          <Link href="/other">
+            <a>
+              Go to Other page &gt;&gt;
+            </a>
+          </Link>
         </div>
       </div>
     </div>
