@@ -7,9 +7,15 @@ import useSWR from 'swr';
 
 // デフォルトコンポーネント
 export default function Home() {
-  // 変数
-  const func = (...args) => fetch(...args).then(res => res.text());
-  const { data, err } = useSWR('./data.txt', func);
+  // ステート変数
+  const [ address, setAddress ] = useState('api/hello');
+  const { data, err } = useSWR(address);
+
+  // onChange関数
+  const onChange = (e) => {
+    // ステート変数を設定する。
+    setAddress('/api/hello?id=' + e.target.value);
+  }
 
   // レンダリング
   return (
@@ -17,9 +23,9 @@ export default function Home() {
       <Layout header="Next.js" title="Top page.">
         <div className="alert alert-primary text-center">
           <h5 className="mb-4">
-            {data != undefined ? data : 'error...' }
+            { JSON.stringify(data) }
           </h5>
-          
+          <input type="number" className="form-control" onChange={onChange} />
         </div>
       </Layout>
     </div>
