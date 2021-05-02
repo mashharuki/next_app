@@ -1,5 +1,5 @@
 // 各種コンポーネントを読み込む。
-import Header from './header';
+import Header from './components/Header';
 import Link from 'next/link';
 
 // Otherコンポーネント
