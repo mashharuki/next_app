@@ -8,13 +8,27 @@ import useSWR from 'swr';
 // デフォルトコンポーネント
 export default function Home() {
   // ステート変数
-  const [ address, setAddress ] = useState('api/hello');
+  const [ pref, setPref ] = useState({ id: 0, item: 'name' });
+  const [ address, setAddress ] = useState('api/hello/' + pref.id + '/' + pref.item);
+  // useSWR (独自副作用フック)
   const { data, err } = useSWR(address);
 
   // onChange関数
   const onChange = (e) => {
+    // idをセット
+    pref.id = e.target.value;
     // ステート変数を設定する。
-    setAddress('/api/hello?id=' + e.target.value);
+    setPref(pref);
+    setAddress('/api/hello/' + pref.id + '/' + pref.item);
+  }
+
+  // onSelect関数
+  const onSelect = (e) => {
+    // idをセット
+    pref.name = e.target.value;
+    // ステート変数を設定する。
+    setPref(pref);
+    setAddress('/api/hello/' + pref.id + '/' + pref.item);
   }
 
   // レンダリング
@@ -25,7 +39,12 @@ export default function Home() {
           <h5 className="mb-4">
             { JSON.stringify(data) }
           </h5>
-          <input type="number" className="form-control" onChange={onChange} />
+          <input type="number" className="form-control form-control-sm mb-2" onChange={onChange} />
+          <select onChange={onSelect} className="form-control form-control-sm">
+            <option value="name">Name</option>
+            <option value="mail">Mail</option>
+            <option value="age">Age</option>
+          </select>
         </div>
       </Layout>
     </div>
