@@ -44,3 +44,6 @@ npm run build
 
 ビルド済みアプリの動作チェック用コマンド  
 npm start  
+
+SWRも利用するため次のコマンドも必要  
+npm install swr  
