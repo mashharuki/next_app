@@ -8,7 +8,8 @@ import useSWR from 'swr';
 // デフォルトコンポーネント
 export default function Home() {
   // 変数
-  const { data } = useSWR('./data.json');
+  const func = (...args) => fetch(...args).then(res => res.text());
+  const { data, err } = useSWR('./data.txt', func);
 
   // レンダリング
   return (
@@ -16,39 +17,9 @@ export default function Home() {
       <Layout header="Next.js" title="Top page.">
         <div className="alert alert-primary text-center">
           <h5 className="mb-4">
-            {data != undefined ? data.message : 'error...' }
+            {data != undefined ? data : 'error...' }
           </h5>
-          <table className="table bg-white">
-            <thead className="">
-              <tr>
-                <th>
-                  Name
-                </th>
-                <th>
-                  Mail
-                </th>
-                <th>
-                  Age
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {data != undefined ? data.data.map((value, key) => (
-                <tr key={key}>
-                  <th>
-                    {value.name}
-                  </th>
-                  <td>
-                    {value.mail}
-                  </td>
-                  <td>
-                    {value.age}
-                  </td>
-                </tr>
-              )) 
-              : <tr><th></th><td>no data.</td><td></td></tr> }
-            </tbody>
-          </table>
+          
         </div>
       </Layout>
     </div>
