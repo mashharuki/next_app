@@ -1,7 +1,7 @@
 // 各種コンポーネントを読み込む。
 import Link from 'next/link';
-import Layout from './components/layout';
-import MyImage from './components/images';
+import Layout from '../components/layout';
+import MyImage from '../components/images';
 import { useState } from 'react';
 import useSWR from 'swr';
 
