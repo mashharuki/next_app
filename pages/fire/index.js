@@ -17,7 +17,7 @@ export default function Home () {
     
     // 副作用フック
     useEffect (() => {
-        // mydataコレクションからデータを取得する。
+        // mydataコレクションからデータを取得する。(getメソッドの呼び出し)
         db.collection('mydata').get().then((snapshot) => {
             // 取り出した要素を順番に処理する。
             snapshot.forEach((document) => {

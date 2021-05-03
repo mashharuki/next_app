@@ -38,9 +38,9 @@ export default function Add () {
             mail: mail,
             age: age
         };
-        // コレクション「mydata」にデータを追加する。
+        // コレクション「mydata」にデータを追加する。(addメソッドの呼びだし)
         db.collection('mydata').add(ob).then( ref => {
-            // デフォルト画面に遷移する。
+            // デフォルト画面にリダイレクトする。
             router.push('/fire');
         } )
     });
