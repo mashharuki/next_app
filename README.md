@@ -47,3 +47,6 @@ npm start
 
 SWRも利用するため次のコマンドも必要  
 npm install swr  
+
+FireBaseを使うために次のコマンドも必要  
+npm install firebase  
