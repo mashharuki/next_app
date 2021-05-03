@@ -4,7 +4,7 @@ import Layout from '../../components/layout';
 import firebase from 'firebase';
 import '../../components/fire';
 
-// Firebaseのオブジェクトを取り出すこと
+// Firebaseのオブジェクトを取り出す
 const db = firebase.firestore();
 
 // Homeコンポーネント
