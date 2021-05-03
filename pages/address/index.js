@@ -90,6 +90,7 @@ export default function Index () {
                         </li>
                     );
                 });
+                setDate(addresses);
             });
         } else {
             addresses.push(
