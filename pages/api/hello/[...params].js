@@ -1,4 +1,4 @@
-import apidata from '../../components/data';
+import apidata from '../../../components/data';
 
 // handler関数コンポーネント
 export default function handler(req, res) {
